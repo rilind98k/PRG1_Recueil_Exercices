@@ -13,16 +13,16 @@ Rappel des recommandations :
 
 |  #  | Déclaration (et contexte) | Conforme ? | Recommandation / meilleur nom |
 | --- | --- | --- | --- |
-| 1 | `int nNbEtudiants = 25;` | | |
-| 2 | `double surface = largeur * hauteur;` | | |
-| 3 | `const int NB_MAX_ETUDIANTS = 100;` | | |
-| 4 | `int nombreTotalDeBouteillesDansUnPack = 6;` | | |
-| 5 | `double x = 13.2 * nb_bouteilles; // poids du pack en grammes` | | |
-| 6 | `int nbPacks, nb_bouteilles, PrixUnitaire;` | | |
-| 7 | `double dblPrix = 2.5;` | | |
-| 8 | `int a = 4, b = 12;` (utilisées 40 lignes plus loin, dans un calcul de prix) | | |
-| 9 | `double volume_canette_l = 0.33;` | | |
-| 10 | `int INT = 3;` | | |
+| 1 | `int nNbEtudiants = 25;` | Non | nb_etudiants|
+| 2 | `double surface = largeur * hauteur;` | Oui | |
+| 3 | `const int NB_MAX_ETUDIANTS = 100;` | Non | nb_max_etudiants |
+| 4 | `int nombreTotalDeBouteillesDansUnPack = 6;` | Non | Trop long, nb_bouteille |
+| 5 | `double x = 13.2 * nb_bouteilles; // poids du pack en grammes` | Non | on sait pas ce que c'est x directement : poids_pack par ex|
+| 6 | `int nbPacks, nb_bouteilles, PrixUnitaire;` | Non | Il utilise trois styles différents, il doit garder un style cohérent|
+| 7 | `double dblPrix = 2.5;` | non | dbl c'est un type |
+| 8 | `int a = 4, b = 12;` (utilisées 40 lignes plus loin, dans un calcul de prix) | non | pire exemple de la flemme |
+| 9 | `double volume_canette_l = 0.33;` | oui | |
+| 10 | `int INT = 3;` | non | Nom en majuscule et ne dit rien de l'usage |
 
 <details>
 <summary>Solution</summary>
