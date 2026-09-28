@@ -35,7 +35,36 @@ Signé : true
 
 Testez votre programme avec les types `int`, `unsigned int`,
 `long`, `unsigned long long`, et `char`.
+~~~cpp
+#include <iostream>
+#include <limits>
 
+using type = unsigned long long int;
+
+int main() {
+    // 1. Taille en bytes (octets)
+    std::cout << "Taille : " << sizeof(type) << " bytes = ";
+
+    // 2. Taille en bits (Grâce à la bilbio <limits>)
+    int bits = std::numeric_limits<type>::digits;   // digits donne le nombre de bits utilisés pourla valeur (sans le signe)
+    if (std::numeric_limits<type>::is_signed) {
+        bits++;
+    }
+    std::cout << bits << "bits\n";
+
+    // 3. Plage de valeurs (intervalle)
+    // L'opérateur '+' devant les std force l'affichage sous forme de nombre (crucial pour le type char)
+    std::cout << "Plage de valeurs : " << +std::numeric_limits<type>::min() << " -> "
+              << +std::numeric_limits<type>::max() << "\n";
+
+    // 4. Signé ou pas
+    // std::boolalpha permet d'afficher "true" ou "false" au lieu de "1" ou "0"
+    std::cout << "Signé : " << std::boolalpha << std::numeric_limits<type>::is_signed << '\n';
+
+    return EXIT_SUCCESS;
+
+}
+~~~
 
 <details><summary>Solution</summary>
 
