@@ -4,16 +4,16 @@ Pour chacune des déclarations ci-dessous, indiquez le type de base (`int`, `dou
 
 |  #  | Déclaration | Type |
 | --- | -------------- | --------- |
-| 1 | `??? var1 = 10;` | |
-| 2 | `??? var2 = 1.;`  | |
-| 3 | `??? var3 = '1';`  | |
-| 4 | `??? var4 = 0.5;` | |
-| 5 | `??? var5 = 'r';` | |
-| 6 | `??? var6 = true;` | |
-| 7 | `??? var7 = 25.0;` | |
-| 8 | `??? var8 = 3;` | |
-| 9 | `??? var9 = var1 / var8;` | |
-| 10 | `??? var10 = var1 / var4;` | |
+| 1 | `??? var1 = 10;` | int |
+| 2 | `??? var2 = 1.;`  | double |
+| 3 | `??? var3 = '1';`  | char (il est mis entre guillemets) |
+| 4 | `??? var4 = 0.5;` | double |
+| 5 | `??? var5 = 'r';` | char |
+| 6 | `??? var6 = true;` | bool |
+| 7 | `??? var7 = 25.0;` | double |
+| 8 | `??? var8 = 3;` | int |
+| 9 | `??? var9 = var1 / var8;` | int (car 10/3, division entière : 3) |
+| 10 | `??? var10 = var1 / var4;` | double (car 10/0.5, division réelle : 20) |
 
 <details>
 <summary>Solution</summary>
