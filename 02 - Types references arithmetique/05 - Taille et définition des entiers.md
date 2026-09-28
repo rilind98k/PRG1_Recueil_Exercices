@@ -35,6 +35,7 @@ Signé : true
 
 Testez votre programme avec les types `int`, `unsigned int`,
 `long`, `unsigned long long`, et `char`.
+Ma solution :
 ~~~cpp
 #include <iostream>
 #include <limits>
