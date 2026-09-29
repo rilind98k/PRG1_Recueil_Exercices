@@ -12,6 +12,19 @@ if (a == 1) {
 } else {
    cout << "BA";
 }        
+
+// Réponse
+switch (a) {
+    case 1:
+        cout << "A"; break;
+    case 4:
+        cout << "C"; break;
+    case 2:
+        cout << "E"; break;
+    default :
+        cout << "BA";
+}   
+  
 ~~~
 
 <details>
@@ -36,6 +49,16 @@ if (a < 0 or a >= 5) {
 } else {
    cout << "B";
 }  
+
+// Réponse - Je dois revoir le mécanisme
+switch (a) {
+    case 0:
+    case 1:
+    case 2: cout << "A"; break;
+    case 3: 
+    case 4: cout << "B"; break;
+    default: cout << "D"; break;
+}
 ~~~
 
 <details>

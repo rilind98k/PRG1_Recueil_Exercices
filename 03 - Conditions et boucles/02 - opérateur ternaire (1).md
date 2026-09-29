@@ -8,6 +8,8 @@ if (a > 0) {
 } else {
    b -= 2*a; 
 }
+// Réponse
+b+= a > 0 ? a : -2*a;
 ~~~
 
 <details>
@@ -27,6 +29,8 @@ if (d == 0.) {
 } else {
    r = n/d; 
 }
+// Réponse
+r = d == 0. ? 1e100 : n/d;
 ~~~
 
 <details>
@@ -50,6 +54,8 @@ if (a > 0) {
 } else {
    b *= 2;
 }
+// Réponse
+b = a > 0 ? b + 1 : (a == 0 ? 0 : b * 2);
 ~~~
 
 <details>

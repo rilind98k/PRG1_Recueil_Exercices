@@ -10,6 +10,17 @@ switch (a) {
     case 2 : cout << "a"; break; 
     default : cout << "b"; break;
 }
+
+// Réponse
+if (a == 0) {
+    cout << "A";
+} else if (a == 1) {
+    cout << "Z";
+} else if (a == 2) {
+    cout << "a"
+} else {
+    cout << "b";
+}
 ~~~
 
 <details>
@@ -32,6 +43,12 @@ if (a == 0) {
 switch (a) {
    case 0 : cout << "0"; 
    default : cout << "D"; break;
+   
+// Réponse
+if (a == 0) {
+    cout << "O";
+} else {
+    cout << "D"
 }
 ~~~
 
@@ -58,6 +75,16 @@ switch (a) {
    case 6 : cout << "3"; 
    case 7 : cout << "4"; break; 
    default : cout << "D"; 
+}
+// Réponse
+if (a >= 0 and a <=5) {
+        cout << "A";
+    } else if (a == 6) {
+        cout << "34"; // On va jusqu'au break
+    } else if (a == 7) {
+        cout << "4";
+} else {
+    cout << "D";
 }
 ~~~
 

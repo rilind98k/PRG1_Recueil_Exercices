@@ -25,7 +25,7 @@ int main() {
 Que va-t-il afficher lorsque l'utilisateur entre comme valeur 
 
 ~~~
-0
+0 // Cela va sortir "AB"
 ~~~
 
 <details>
@@ -37,7 +37,7 @@ AB
 </details>
 
 ~~~
-1
+1 // Cela va sort "B"
 ~~~
 
 <details>
@@ -49,7 +49,7 @@ B
 </details>
 
 ~~~
-2
+2 // Cela va sortir "B"
 ~~~
 
 <details>
@@ -61,7 +61,7 @@ B
 </details>
 
 ~~~
-4
+4 // Cela va sortir "CD"
 ~~~
 
 <details>
@@ -73,7 +73,7 @@ CD
 </details>
 
 ~~~
-6
+6 // D car cela va automatiquement aller dans default
 ~~~
 
 <details>
@@ -85,7 +85,7 @@ D
 </details>
 
 ~~~
--1
+-1 // D
 ~~~
 
 <details>
