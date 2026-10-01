@@ -14,7 +14,7 @@ int main() {
         char reponse2; cin >> reponse2;
             if (reponse2 == 'O') {
             cout << "Les frais de livraison s'élèvent à 7.00 CHF";
-        } else {
+            } else {
             cout << "Les frais de livraison s'élèvent à 5.00 CHF";
         }
     } else {
@@ -23,8 +23,8 @@ int main() {
             if (reponse3 == 'O') {
             cout << "Les frais de livraison s'élèvent à 7.00 CHF";
             } else {
-                cout << "Les frais de livraison s'élèvent à 10.00 CHF";
+            cout << "Les frais de livraison s'élèvent à 10.00 CHF";
+        }
     }
-    }
-    return EXIT_SUCCESS;
+return EXIT_SUCCESS;
 }
