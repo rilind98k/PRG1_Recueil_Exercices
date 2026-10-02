@@ -1,0 +1,86 @@
+// 1
+int i = 0;
+while (i - 10) {
+   i += 2; cout << i << " ";
+}
+i = 0 -> (1 - 10) = True -> i = 2
+i = 2 -> (2 - 10) = True -> i = 4
+i = 4 -> (4 - 10) = True -> i = 6
+i = 6
+i = 8
+i = 10 -> (10 - 10) = True -> i = 12
+i = 12 -> (12 - 10) = False -> Break
+(2, 4, 6, 8, 10)
+
+// 2
+int i = 0;
+while (i - 10)
+   i += 2; cout << i << " ";
+Ici, la boucle while va uniquement s'occuper de i += 2, tant que (i - 10) est vrai
+le cout << 1 << " " à la fin va simplement retourner le dernier i avant la sortie de boucle, donc
+10.
+
+// 3
+int i = 0;
+while (i < 11) {
+   i += 2; cout << i << " ";
+}
+i = 0 -> (0 < 11) = True -> i = 2 (cout 2)
+i = 2 -> (2 < 11) = True -> i = 4 (cout 4)
+i = 4 -> (4 < 11) = True -> i = 6 (cout 6)
+i = 6 -> (6 < 11) = True -> i = 8 (cout 8)
+i = 8 -> (8 < 11) = True -> i = 10 (cout 10)
+i = 10 -> (10 < 11) = True -> i = 12 (cout 12)
+End. S = {2, 4, 6, 8, 10, 12}
+
+// 4
+int i = 11;
+while (i--) {
+   cout << i-- << " ";
+}
+La boucle s'exécute 11 fois en affichant les nombres pairs de 10 à 0,
+parce que la variable `i` perd 2 à chaque tour (1 fois dans la condition `while` et 1 fois lors de l'affichage avec `cout`).
+
+Au début : i = 11
+Entrée de boucle :
+while (i--) regarde si 11 est vrai (Oui, c'est différent de 0). Mais en passant, i passe à 10.
+Dans la boucle :
+il affiche la valeur actuelle (avant de décrémenter i) de 10. Puis, il baisse le i à 9.
+etc.
+Au moment ou il arrive à l'évaluation de 1, c'est vrai et il passe à 0. Il cout aussi 0, mais le passe à -1.
+Et il continue, car -1 != 0, donc c'est true.
+
+Résultat : {10, 8, 6, 4, 2, 0, -2, -4, ...}
+
+//5
+int i = 12;
+while (i--) {
+   cout << --i << " ";
+}
+
+Au début : i = 12
+Entrée de boucle : i = 12 est vrai (!= 0), puis i passe à 11.
+Ici, il va cout directement la valeur après la décrémentation, donc 10, puis le mettre dans i.
+{10, 8, 6, 4, 2, 0}
+
+// 6
+int i = 0;
+while (i++ < 10) {
+   cout << i-- << " ";
+}
+1 1 1 1 1 1 1 1 1
+
+// 7
+int i = 1;
+while (i <= 5) {
+   cout << 2 * i++ << " ";
+}
+2 4 6 8 10
+
+// 8
+int i = 1;
+while (i != 9) {
+   cout << (i = i + 2) << " ";
+}
+3 5 7 9
+
