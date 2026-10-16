@@ -48,23 +48,52 @@ Le programme ci-dessous contient plusieurs erreurs :
 40    cout << "x = " << x <<endl;
 41 }
 ~~~
+## Mémo de révision : Passage par valeur vs par référence (`const` et types)
 
-<details>
-<summary>Solution</summary>
+### 1. Les 3 profils de paramètres (Les règles d'or)
 
-1) Erreurs
-- Ligne 18 : Le paramètre effectif de g doit être du même type que le paramètre formel (pas de conversion implicite possible dans ce cas !)
-- Ligne 19 : Le paramètre effectif de g doit être du même type que le paramètre formel
-(pas de conversion implicite possible dans ce cas !)
-- Ligne 39 : Le mot clé const précise que le paramètre ne peut pas être modifié dans le corps de la fonction
+* **`void f(double x)` — Passage par valeur (Le Photocopieur) :**
+    * **Comportement :** Crée une copie indépendante en mémoire.
+    * **Souplesse :** **Maximale.** Accepte les constantes (`const`) et convertit automatiquement les types compatibles (ex: un `int` est converti en `double` lors de la copie). L'original dans le `main` n'est jamais modifié.
+* **`void g(double& x)` — Passage par référence (Le Chirurgien) :**
+    * **Comportement :** Se branche directement sur la variable d'origine pour pouvoir la modifier.
+    * **Souplesse :** **Zéro (Ultra-strict).**
+        1. Refuse les constantes (`const`), car il exige le droit de modification.
+        2. Exige **exactement le même type** : impossible de brancher une référence `double&` sur une variable `int` (leurs tailles et formats en mémoire sont différents).
+* **`void h(const double& x)` — Référence constante (La Vitrine blindée) :**
+    * **Comportement :** Donne accès à la variable sans la copier, mais avec **interdiction formelle de la modifier** dans la fonction.
+    * **Souplesse :** **Élevée.** Comme la fonction promet de ne rien modifier (`const`), le compilateur l'autorise à accepter des constantes ET des types différents (ex: si on lui passe un `int`, le compilateur crée un `double` temporaire invisible juste le temps de la fonction).
 
-2) Après corrections
+---
 
-- x=2
-- x=2
-- x=2
-- x=2
-- x=1
-- x=1
-- x=2 (2 car le paramètre effectif x a été préalablement modifié lors de l'appel g(x))
-</details>
+### 2. Résolution de l'exercice
+
+#### Question 1 : Les 3 lignes fautives (Erreurs de compilation)
+* **Ligne 18 (`g(C);`) :** **Interdit.** `C` est une constante (`const int`). La fonction `g` attend une référence modifiable (`double&`). On ne peut pas donner les clés d'une constante à une fonction qui peut la modifier (de plus, le type `int` ne correspond pas à `double`).
+* **Ligne 19 (`g(n);`) :** **Interdit (Conflit de type).** `n` est de type `int`, mais `g` exige une référence directe sur un `double` (`double&`). Une référence non-constante ne peut pas convertir un type à la volée.
+* **Ligne 39 (`x = x + 1;` dans `h`) :** **Interdit (Violation de `const`).** La signature `void h(const double& x)` engage la fonction à lire `x` sans jamais le modifier. Tenter de lui ajouter `1` provoque une erreur de compilation immédiate.
+
+*(Note : `h(C)` et `h(n)` aux lignes 21-22 sont 100 % valides grâce au mot-clé `const` qui autorise la création d'une variable temporaire de type `double`).*
+
+---
+
+#### Question 2 : Affichage à l'exécution (une fois les lignes 18, 19 et 39 supprimées)
+*État initial dans le `main` : `C = 1`, `n = 1`, `x = 1.0`*
+
+1. **`f(C);` (Ligne 15) :** `f` travaille sur une copie de `C`, fait `1 + 1` et affiche **`x = 2`** *(dans le `main`, `C` vaut toujours `1`)*.
+2. **`f(n);` (Ligne 16) :** `f` travaille sur une copie de `n`, fait `1 + 1` et affiche **`x = 2`** *(dans le `main`, `n` vaut toujours `1`)*.
+3. **`f(x);` (Ligne 17) :** `f` travaille sur une copie de `x`, fait `1 + 1` et affiche **`x = 2`** *(dans le `main`, le vrai `x` vaut toujours `1.0`)*.
+4. **`g(x);` (Ligne 20) :** **Modification réelle !** `g` travaille par référence (`&`) sur le vrai `x` du `main`. Elle calcule `1 + 1`. Le `x` du `main` devient définitivement **`2.0`**. Affiche **`x = 2`**.
+5. **`h(C);` (Ligne 21) :** Sans la ligne 39, `h` ne fait qu'afficher la valeur reçue. Affiche **`x = 1`**.
+6. **`h(n);` (Ligne 22) :** `n` n'a jamais bougé. Affiche **`x = 1`**.
+7. **`h(x);` (Ligne 23) :** Le vrai `x` ayant été modifié par `g(x)` à l'étape 4, il vaut désormais `2`. Affiche **`x = 2`**.
+
+#### Résultat final dans la console :
+```text
+x = 2
+x = 2
+x = 2
+x = 2
+x = 1
+x = 1
+x = 2

@@ -30,17 +30,37 @@ int main() {
 
    return EXIT_SUCCESS;
 }
+/*
+ * ============================================================================
+ * MÉMO DE RÉVISION : PASSAGE PAR ADRESSE (POINTEURS)
+ * ============================================================================
+ * 1. Qu'est-ce qu'un pointeur (int* param) ?
+ *    C'est une variable qui possède sa propre case mémoire (0x16eea3648), 
+ *    mais dont le contenu est l'adresse d'une autre variable (0x16eea3698).
+ *
+ * 2. Les 3 syntaxes à ne pas confondre :
+ *    - param   : Contenu du pointeur -> L'adresse cible (0x16eea3698).
+ *    - &param  : Adresse du pointeur lui-même en mémoire (0x16eea3648).
+ *    - *param  : Déréférencement -> On suit la flèche pour lire ou modifier 
+ *                la valeur située à l'adresse cible (17 devient 18).
+ *
+ * 3. Règles d'or :
+ *    - "*param += 1" modifie la VALEUR pointée (17 -> 18), jamais l'adresse.
+ *    - Une variable ne déménage jamais : l'adresse de 'entier' (&entier) 
+ *      reste figée à 0x16eea3698 du début à la fin du programme.
+ * ============================================================================
+ */
 ~~~
 
 | Element          | Affichage |
 |---               |---        |
-| entier           |           |
-| adr entier       |           |
-| param            |           |
-| adr param        |           |
-| valeur pointee   |           |
-| entier           |           |
-| adr entier       |           |
+| entier           |     17      |
+| adr entier       |0x16eea3698|
+| param            |0x16eea3698|
+| adr param        |0x16eea3648|
+| valeur pointee   |18|
+| entier           |18|
+| adr entier       |0x16eea3698|
 
 
 <details>
